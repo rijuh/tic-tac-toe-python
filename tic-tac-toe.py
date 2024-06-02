@@ -36,8 +36,13 @@ while True:
         print("X's turn: ")
     else:
         print("Z's turn: ")
-    play = int(input("Enter the position: "))
-    move(board, turn, X, O, play)
+    while True:
+        play = int(input("Enter the position: "))
+        if board[play-1] != 'X' and board[play-1] != 'O':
+            move(board, turn, X, O, play)
+            break
+        else:
+            print("Enter another cell")
     win = check_win(X, O, count)
     print_board(board)
     if win == 1:
